@@ -9,7 +9,7 @@
     "lint": "next lint",
     "generate-client": "prisma generate --data-proxy",
     "migrate": "DATABASE_URL=\"$MIGRATE_DATABASE_URL\" prisma migrate deploy",
-    "vercel-build": "npm run prisma:generate && npm run prisma:migrate && next build"
+    "vercel-build": "next build && npm run prisma:generate && npm run prisma:migrate"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.2",
