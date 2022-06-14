@@ -1,11 +1,15 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
+import { PrismaClient as EdgePrismaClient } from "@prisma/client/edge";
 import { NextApiHandler } from "next";
 import NextAuth from "next-auth";
 import Email from "next-auth/providers/email";
 import GoogleProvider from "next-auth/providers/google";
 
-const prisma = new PrismaClient();
+const prisma =
+  process.env.NODE_ENV === "production"
+    ? new EdgePrismaClient()
+    : new PrismaClient();
 
 const handler: NextApiHandler = (req, res) =>
   NextAuth(req, res, {
