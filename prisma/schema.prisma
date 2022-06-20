@@ -50,3 +50,20 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+enum RestaurantStatus {
+  CLOSED
+  OPEN
+}
+
+model Restaurant {
+  id               String           @id @default(cuid())
+  name             String           @unique
+  slug             String
+  shortDescription String
+  imageUrl         String
+  status           RestaurantStatus @default(CLOSED)
+  postalAddress    String
+  phoneNumber      String
+  tags             String[]
+}

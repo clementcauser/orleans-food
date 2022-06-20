@@ -10,14 +10,13 @@ import { Routes } from "../constants";
  */
 export const protectedPageRoute = async (
   context: GetServerSidePropsContext,
-  redirectTo?: Routes,
   getInitialProps?: () => any
 ) => {
   const session = await getSession({ req: context.req });
 
   if (!session) {
     return {
-      redirect: { destination: redirectTo ?? Routes.SIGN_IN, permanent: false },
+      redirect: { destination: Routes.SIGN_IN, permanent: false },
     };
   } else {
     if (getInitialProps) {

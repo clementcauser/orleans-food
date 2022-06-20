@@ -16,8 +16,8 @@ import {
   signIn,
 } from "next-auth/react";
 import Head from "next/head";
-import { Routes } from "../constants";
-import LoginForm from "../features/auth/login/LoginForm";
+import { APP_NAME, Routes } from "../constants";
+import LoginForm from "../features/auth/LoginForm";
 
 type Props = {
   providers: Record<
@@ -33,7 +33,7 @@ export default function SignIn({ providers }: Props) {
   return (
     <>
       <Head>
-        <title>Se connecter - Orléans Food</title>
+        <title>Se connecter - {APP_NAME}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Flex height="100vh" alignItems="center" justifyContent="center">

@@ -2,7 +2,7 @@ import { AtSignIcon, LockIcon } from "@chakra-ui/icons";
 import { Button } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, useForm } from "react-hook-form";
-import TextField from "../../../components/forms/TextField";
+import TextField from "../../components/forms/TextField";
 import { LogInPayload } from "./LogInPayload";
 import { loginSchema } from "./loginSchema";
 
